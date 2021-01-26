@@ -1,3 +1,29 @@
+//loops through the questions 
+function next() {
+    currentQuestion++;
+
+    if (currentQuestion > questions.length - 1) {
+        endGame();
+        return;
+    }
+
+    var pageContent = "<h2>" + questions[currentQuestion].title + "</h2>"
+
+    for (var buttonLoop = 0; buttonLoop < questions[currentQuestion].choices.length; buttonLoop++) {
+        var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>";
+        buttonCode = buttonCode.replace("[CHOICE]", questions[currentQuestion].choices[buttonLoop]);
+        if (questions[currentQuestion].choices[buttonLoop] == questions[currentQuestion].answer) {
+            buttonCode = buttonCode.replace("[ANS]", "correct()");
+        } else {
+            buttonCode = buttonCode.replace("[ANS]", "incorrect()");
+        }
+        pageContent += buttonCode
+    }
+
+
+    document.getElementById("quizBody").innerHTML = pageContent;
+}
+//
 var questions = [{
         title: "what color is grass?",
         choices: ["Red?", "Blue?", "Green?", "Yellow?"],
@@ -115,30 +141,4 @@ function incorrect() {
 function correct() {
     score += 20;
     next();
-}
-
-//loops through the questions 
-function next() {
-    currentQuestion++;
-
-    if (currentQuestion > questions.length - 1) {
-        endGame();
-        return;
-    }
-
-    var pageContent = "<h2>" + questions[currentQuestion].title + "</h2>"
-
-    for (var buttonLoop = 0; buttonLoop < questions[currentQuestion].choices.length; buttonLoop++) {
-        var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>";
-        buttonCode = buttonCode.replace("[CHOICE]", questions[currentQuestion].choices[buttonLoop]);
-        if (questions[currentQuestion].choices[buttonLoop] == questions[currentQuestion].answer) {
-            buttonCode = buttonCode.replace("[ANS]", "correct()");
-        } else {
-            buttonCode = buttonCode.replace("[ANS]", "incorrect()");
-        }
-        pageContent += buttonCode
-    }
-
-
-    document.getElementById("quizBody").innerHTML = pageContent;
 }
