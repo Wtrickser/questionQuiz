@@ -5,27 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Question Quiz</title>
+
+    <!--Style Links-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="javascript.js"></script>
 </head>
 
 <body>
     <div id="nav">
+
         <!-- view scores link on the top left of nav bar-->
         <div class="left">
             <button type="button" onclick="getScore()" id="highscore-button" class="btn btn-info">View High Scores</button>
         </div>
+
         <!-- countdown timer on the top right of nav bar-->
         <div class="right">
             <h4>Time Remaining: <span id="timeLeft">0</span></h4>
         </div>
     </div>
+
     <!--main body of quiz-->
     <div id="quiz">
         <div id="quizBody">
             <h1>
-                ✨Question Quiz✨
+                ✨Quiz of Questions✨
             </h1>
             <h3>
                 ✨Click to play✨
@@ -33,6 +37,9 @@
             <button onclick="start()">Start!</button>
         </div>
     </div>
+
+    <!--Javascript Links-->
+    <script src="javascript.js"></script>
 </body>
 
 </html>
